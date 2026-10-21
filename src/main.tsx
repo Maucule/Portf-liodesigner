@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
+import logoMark from './assets/logo-m.svg'
 import praiseImg from './assets/projectos/praise-the-lord.webp'
 import kalembeImg from './assets/projectos/kalembe.webp'
 import feedfoodImg from './assets/projectos/feedfood.webp'
@@ -123,7 +124,7 @@ function App() {
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Maucule Artur Nubo — início">
           <span className="wordmark-mark"></span>
-          <span className="wordmark-text">MAUCULE<span>.</span></span>
+          <img className="wordmark-logo" src={logoMark} alt="" width="36" height="24" /><span className="wordmark-text">MAUCULE<span>.</span></span>
         </a>
         <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Navegação principal">
           <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
@@ -201,7 +202,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><div className="footer-top"><a className="wordmark" href="#top"><span className="wordmark-mark"></span><span className="wordmark-text">MAUCULE<span>.</span></span></a><p>Design gráfico & estratégia digital<br />para marcas com algo a dizer.</p><div className="social-links"><a href="#contacto">Instagram <span>↗</span></a><a href="#contacto">TikTok <span>↗</span></a><a href="#contacto">LinkedIn <span>↗</span></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Maucule Artur Nubo</span><span>Maputo, Moçambique</span><a href="#top">Voltar ao topo ↑</a></div></footer>
+      <footer className="site-footer"><div className="footer-top"><a className="wordmark" href="#top"><span className="wordmark-mark"></span><img className="wordmark-logo" src={logoMark} alt="" width="36" height="24" /><span className="wordmark-text">MAUCULE<span>.</span></span></a><p>Design gráfico & estratégia digital<br />para marcas com algo a dizer.</p><div className="social-links"><a href="#contacto">Instagram <span>↗</span></a><a href="#contacto">TikTok <span>↗</span></a><a href="#contacto">LinkedIn <span>↗</span></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Maucule Artur Nubo</span><span>Maputo, Moçambique</span><a href="#top">Voltar ao topo ↑</a></div></footer>
       <a className="floating-whatsapp" href="https://wa.me/258879577008" target="_blank" rel="noreferrer" aria-label="Falar com Maucule no WhatsApp"><span>WhatsApp</span><Icon name="arrow" size={18} /></a>
 
       {activeProject && <div className="modal-backdrop" role="presentation" onClick={() => setActiveProject(null)}><div className="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={() => setActiveProject(null)} aria-label="Fechar projeto"><Icon name="close" size={21} /></button><div className={`modal-visual ${activeProject.accent}`}>{activeProject.image ? <img src={activeProject.image} alt={`Projecto ${activeProject.name}`} /> : <><div className="project-word">{activeProject.name.split(' ')[0]}<span>.</span></div><div className="placeholder-label">imagem principal<br />a substituir</div></>}</div><p className="section-kicker">{activeProject.category}</p><h2 id="modal-title">{activeProject.name}</h2><p>{activeProject.description}</p><div className="modal-shots"><div>imagem 01</div><div>imagem 02</div><div>imagem 03</div></div><button className="button button-primary" onClick={() => { setActiveProject(null); goToContact(activeProject.name) }}>Quero falar sobre este projecto <Icon name="arrow" size={18} /></button></div></div>}
